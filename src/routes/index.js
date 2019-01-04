@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index', 
-  { 
-    title: 'Express',
-    user 
-  });
-});
+const usersRouter = require('../controller/user');
+
+/**
+ * Primary app routes.
+ */
+router.get('/', usersRouter.getAccount);
 
 module.exports = router;

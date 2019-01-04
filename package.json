@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon -w ./src/app.js"
+    "start": "node src/server.js",
+    "dev": "nodemon -w ./src/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -13,6 +13,7 @@
     "debug": "~2.6.9",
     "dotenv": "^6.2.0",
     "ejs": "~2.5.7",
+    "errorhandler": "^1.5.0",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "mongoose": "^5.4.2",

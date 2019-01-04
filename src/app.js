@@ -5,10 +5,20 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const errorHandler = require('errorhandler');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+// const usersRouter = require('./routes/users');
 
+/**
+ * Load environment variables from .env file, where API keys and passwords are configured.
+ */
+dotenv.load({ path: '.env' });
+
+/**
+ * Create Express server.
+ */
 const app = express();
 
 // View engine setup
@@ -21,23 +31,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/assets', express.static('public'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(indexRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));
 });
 
-// error handler
-app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+/**
+ * Error Handler.
+ */
+if (process.env.NODE_ENV === 'development') {
+  // only use in development
+  app.use(errorHandler());
+} else {
+  app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send('Server Error');
+  });
+}
 
 module.exports = app;
