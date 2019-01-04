@@ -11,4 +11,5 @@ Style with Bootstrap, the world’s most popular framework for building responsi
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com) - The open source toolkit for developing with HTML, CSS, and JS.
-* [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
+* [Express](https://expressjs.com/) - Fast, un-opinionated, minimalist web framework for Node.js.
+* [Mongoose](https://mongoosejs.com/) - Mongoose provides a straight-forward, schema-based solution to model your application data.
