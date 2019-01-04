@@ -1,5 +1,5 @@
 # parcel-bundler cache (https://parceljs.org/)
-.cache
+.cache/
 dist/
 bin/
 
