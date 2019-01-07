@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = require('./app');
 const debug = require('debug')('scraptube:server');
 const http = require('http');
-const { mongoose } = require('../db/mongoose');
+const { mongoose } = require('./db/mongoose');
 
 /**
  * Normalize a port into a number, string, or false.
