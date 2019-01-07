@@ -5,7 +5,6 @@ const { User } = require('../models/User');
  */
 exports.getAccount = (req, res, next) => {
   User.find().then(item => {
-    console.log(item);
     if (item !== null) {
       res.render('index',
       {
