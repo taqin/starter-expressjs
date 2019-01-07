@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = require('./app');
 const debug = require('debug')('scraptube:server');
 const http = require('http');
-const mongoose = require('mongoose');
+const { mongoose } = require('../db/mongoose');
 
 /**
  * Normalize a port into a number, string, or false.
@@ -54,30 +54,12 @@ const onError = (error) => {
 }
 
 /**
- * Connection to MongoDB
- */
-const connectToMongoDB = () => {
-  const MONGO_URI = process.env.MONGO_URI || '';
-
-  return mongoose.connect(
-    MONGO_URI,
-    { useNewUrlParser: true }
-  );
-}
-
-/**
  * Event listener for HTTP server "listening" event.
  */
 const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-  try {
-    connectToMongoDB().then(() => {
-      console.log('Listening on ' + bind);
-    });
-  } catch (e) {
-    throw new Error(e);
-  }
+  console.log('Listening on ' + bind);
 }
 
 /**

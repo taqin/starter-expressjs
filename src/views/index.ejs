@@ -61,11 +61,13 @@
               </tr>
             </thead>
             <tbody>
+              <% item.forEach(function(user, index) { %>   
               <tr>
                 <th scope="row">1</th>
-                <td></td>
-                <td></td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
               </tr>
+              <% }); %>
             </tbody>
           </table>
         </div>
