@@ -2,6 +2,16 @@
 :fire: Quickly get a Nodejs project started with Bootstrap 4. :v:
 
 ## Getting Started
+
+### *.env* Config
+	
+~~~~
+PROXY='http://'
+PORT=3000
+NODE_ENV='development'
+MONGODB_URI='mongodb://localhost:27017/<DB NAME GOES HERE>'`	
+~~~~
+
 ### Backend / Server-side
 Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 
