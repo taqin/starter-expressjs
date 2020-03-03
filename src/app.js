@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const errorHandler = require('errorhandler');
 
 const indexRouter = require('./routes/index');
@@ -14,7 +14,6 @@ const indexRouter = require('./routes/index');
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
-dotenv.load({ path: '.env' });
 
 /**
  * Create Express server.
